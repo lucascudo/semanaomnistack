@@ -34,9 +34,9 @@ function Main() {
                 <Image style={styles.avatar} source={{ uri: 'https://avatars2.githubusercontent.com/u/13350752?s=460&v=4' }} />
                 <Callout>
                     <View style={styles.callout}>
-                        <Text style={style.devName}>Lucas Rocha</Text>
-                        <Text style={style.devBio}>Lorem ipsum dolor sit amet consectetur adipiscing elit</Text>
-                        <Text style={style.devTechs}>ReactJS, React Native, NodeJS, Angular</Text>
+                        <Text style={styles.devName}>Lucas Rocha</Text>
+                        <Text style={styles.devBio}>Lorem ipsum dolor sit amet consectetur adipiscing elit</Text>
+                        <Text style={styles.devTechs}>ReactJS, React Native, NodeJS, Angular</Text>
                     </View>
                 </Callout>
             </Marker>
