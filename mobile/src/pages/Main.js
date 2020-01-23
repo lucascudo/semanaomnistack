@@ -34,9 +34,7 @@ function Main({ navigation }) {
             <MapView style={styles.map} initialRegion={currentRegion} >
                 <Marker coordinate={{ latitude: -12.9782988, longitude: -38.4616612 }}>
                     <Image style={styles.avatar} source={{ uri: 'https://avatars2.githubusercontent.com/u/13350752?s=460&v=4' }} />
-                    <Callout onPress={() => {
-                        navigation(navigate('Profile', { github_username: 'lucascudo' }))
-                    }}>
+                    <Callout onPress={() => navigation.navigate('Profile', { github_username: 'lucascudo' }) }>
                         <View style={styles.callout}>
                             <Text style={styles.devName}>Lucas Rocha</Text>
                             <Text style={styles.devBio}>Lorem ipsum dolor sit amet consectetur adipiscing elit</Text>
@@ -113,7 +111,7 @@ const styles = StyleSheet.create({
     loadButton: {
         width: 50,
         height: 50,
-        backgroundColor: '$834DFF',
+        backgroundColor: '#834DFF',
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
