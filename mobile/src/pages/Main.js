@@ -49,7 +49,7 @@ function Main({ navigation }) {
                     placeholder="Buscar dev por techs..."
                     placeholderTextColor="#999"
                     autoCapitalize="words"
-                    autoCorrec={false}
+                    autoCorrect={false}
                 />
                 <TouchableOpacity style={styles.loadButton} onPress={() => alert('pressed')}>
                     <MaterialIcons name="my-location" size={20} color="#FFF" />
