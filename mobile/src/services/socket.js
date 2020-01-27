@@ -28,8 +28,13 @@ function subscribeToNewDevs(subscriberFunction) {
     socket.on('new-dev', subscriberFunction);
 }
 
+function subscribeToDeleteDevs(subscriberFunction) {
+    socket.on('delete-dev', subscriberFunction);
+}
+
 export {
     connect,
     disconnect,
     subscribeToNewDevs,
+    subscribeToDeleteDevs,
 };

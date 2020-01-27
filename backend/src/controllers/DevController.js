@@ -93,6 +93,8 @@ module.exports = {
                 message: 'Dev not found',
             });
         }
+        const { location, techs } = dev;
+        const { 0: longitude, 1: latitude } = location.coordinates;
         dev.remove((error) => {
             if (error) {
                 return response.json({
@@ -100,6 +102,10 @@ module.exports = {
                     message: error,
                 });
             }
+            const sendSocketMessageTo = findConnections({
+                latitude, longitude
+            }, techs);
+            sendMessage(sendSocketMessageTo, 'delete-dev', _id);
             return response.json({
                 success: true,
                 message: 'Dev deleted successfully',
