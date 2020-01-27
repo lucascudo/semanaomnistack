@@ -1,6 +1,8 @@
+require('dotenv').config({path: __dirname + '/../.env'});
 const axios = require('axios');
 const Dev = require('../models/Dev');
 const parseStringAsArray = require('../utils/parseStringAsArray');
+const { findConnections, sendMessage } = require('../websocket');
 
 module.exports = {
     async index(request, response) {
@@ -25,7 +27,7 @@ module.exports = {
                         type: 'Point',
                         coordinates: [longitude, latitude],
                     },
-                    $maxDistance: 10000,
+                    $maxDistance: process.env['SEARCH_RADIUS'] * 1000,
                 },
             },
         });
@@ -50,6 +52,10 @@ module.exports = {
                 techs: techsArray,
                 location,
             });
+            const sendSocketMessageTo = findConnections({
+                latitude, longitude
+            }, techsArray);
+            sendMessage(sendSocketMessageTo, 'new-dev', dev);
         }
         return response.json(dev);
     },

@@ -24,7 +24,12 @@ function disconnect() {
     }
 }
 
+function subscribeToNewDevs(subscriberFunction) {
+    socket.on('new-dev', subscriberFunction);
+}
+
 export {
     connect,
     disconnect,
+    subscribeToNewDevs,
 };
