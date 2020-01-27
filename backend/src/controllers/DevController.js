@@ -52,9 +52,7 @@ module.exports = {
                 techs: techsArray,
                 location,
             });
-            const sendSocketMessageTo = findConnections({
-                latitude, longitude
-            }, techsArray);
+            const sendSocketMessageTo = findConnections({ latitude, longitude }, techsArray);
             sendMessage(sendSocketMessageTo, 'new-dev', dev);
         }
         return response.json(dev);
@@ -102,9 +100,7 @@ module.exports = {
                     message: error,
                 });
             }
-            const sendSocketMessageTo = findConnections({
-                latitude, longitude
-            }, techs);
+            const sendSocketMessageTo = findConnections({ latitude, longitude }, techs);
             sendMessage(sendSocketMessageTo, 'delete-dev', _id);
             return response.json({
                 success: true,
