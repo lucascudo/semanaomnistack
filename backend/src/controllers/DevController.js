@@ -9,7 +9,7 @@ module.exports = {
         const devs = await Dev.find();
         return response.json(devs);
     },
-    async show (request, response) {
+    async show(request, response) {
         const { _id } = request.params;
         const dev = await Dev.findOne({ _id });
         return response.json(dev);
